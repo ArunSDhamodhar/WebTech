@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Form Validation Example</title>
+    <style>
+        h2 {
+            color: red;
+            font-family: 'Brush Script MT', cursive;
+        }
+        
+        p {
+            color: firebrick;
+            font-weight: bold;
+        }
+        
+        g {
+            color: gold;
+            font-family: "Times New Roman", Times, serif;
+        }
+        
+        so {
+            color: green;
+            font-family: 'Brush Script MT', cursive;
+        }
+        
+        so:hover {
+            color: pink;
+            font-size: 150%;
+        }
+    </style>
+    <script>
+        function validateForm() {
+            var name = document.forms["myForm"]["name"].value;
+            var email = document.forms["myForm"]["email"].value;
+            var password = document.forms["myForm"]["password"].value;
+            if (name == "") {
+                alert("Name must be filled out");
+                return false;
+            }
+            if (email == "") {
+                alert("Email must be filled out");
+                return false;
+            }
+            var password = prompt("Enter your password:");
+            if (password === "") {
+
+                alert("Password field cannot be empty.");
+                return false;
+            }
+            var result = confirm("Are you sure you want to submit the form?");
+            if (result) {
+                alert("Form submitted successfully!");
+                return true;
+            } else {
+                alert("Form submission canceled.");
+                return false;
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <h2>Form Validation Example</h2>
+    <form name="myForm" onsubmit="return validateForm()" method="post">
+        <p label for="name">Name:</label>
+            <input type="text" id="name" name="name" required><br><br>
+            <g label for="email">Email:</label>
+                <input type="email" id="email" name="email" required><br><br>
+                <so label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required><br><br>
+                    <input type="submit" value="Submit">
+    </form>
+</body>
+
+</html>
